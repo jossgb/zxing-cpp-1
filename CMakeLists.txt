@@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 3.0)
 
 project(zxing)
 
-option(BUILD_TESTING "Enable generation of test targets" OFF)
-
 set(CMAKE_LIBRARY_PATH /opt/local/lib ${CMAKE_LIBRARY_PATH})
 
 # Check for polluted source tree.
@@ -113,16 +111,3 @@ endif()
 configure_file(cmake/zxing-config.cmake.in zxing-config.cmake @ONLY)
 install(FILES ${CMAKE_BINARY_DIR}/zxing-config.cmake DESTINATION lib/zxing/cmake)
 
-if(BUILD_TESTING)
-    # Add testrunner executable.
-    find_package(CPPUNIT)
-    if(CPPUNIT_FOUND)
-        file(GLOB_RECURSE TESTRUNNER_FILES
-            "./core/tests/src/*.cpp"
-            "./core/tests/src/*.h"
-        )
-        add_executable(testrunner ${TESTRUNNER_FILES})
-        include_directories(${CPPUNIT_INCLUDE_DIR})
-        target_link_libraries(testrunner libzxing  ${CPPUNIT_LIBRARIES})
-    endif()
-endif()
