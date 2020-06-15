@@ -43,6 +43,7 @@ else()
 endif()
 
 # OpenCV classes
+set(OpenCV_DIR /Volumes/Dev/opencv_bin/lib/cmake/opencv4)
 find_package(OpenCV)
 if(OpenCV_FOUND)
     list(APPEND LIBZXING_FILES
@@ -65,6 +66,10 @@ if(ICONV_FOUND)
 else()
     add_definitions(-DNO_ICONV=1)
 endif()
+target_link_libraries(${OpenCV_LIBS})
+
+
+
 
 # Add OpenCV cli executable
 if(OpenCV_FOUND)
