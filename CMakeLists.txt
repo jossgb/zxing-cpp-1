@@ -73,7 +73,7 @@ if(OpenCV_FOUND)
         "./opencv-cli/src/*.h"
     )
     add_executable(zxing-cv ${OPENCV_ZXING_FILES})
-    target_link_libraries(zxing-cv libzxing ${OpenCV_LIBRARIES})
+    target_link_libraries(zxing-cv libzxing ${OpenCV_LIBS})
 endif()
 
 # Add cli executable.
