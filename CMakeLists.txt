@@ -66,7 +66,7 @@ if(ICONV_FOUND)
 else()
     add_definitions(-DNO_ICONV=1)
 endif()
-target_link_libraries(${OpenCV_LIBS})
+target_link_libraries(libzxing ${OpenCV_LIBS})
 
 
 
