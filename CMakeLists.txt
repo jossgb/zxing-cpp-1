@@ -55,7 +55,7 @@ if(OpenCV_FOUND)
     include_directories(opencv/src)
 endif()
 
-include_directories(core/src)
+include_directories(core/src opencv/src)
 add_library(libzxing ${LIBZXING_FILES})
 set_target_properties(libzxing PROPERTIES PREFIX "")
 
