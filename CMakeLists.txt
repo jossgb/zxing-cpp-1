@@ -56,7 +56,7 @@ if(OpenCV_FOUND)
 endif()
 
 include_directories(core/src opencv/src)
-add_library(libzxing ${LIBZXING_FILES})
+add_library(libzxing STATIC ${LIBZXING_FILES})
 set_target_properties(libzxing PROPERTIES PREFIX "")
 
 find_package(Iconv)
